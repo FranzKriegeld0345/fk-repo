@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólió Weboldal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Fejléc -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Kezdőlap</a></li>
+                <li><a href="#projects">Projektek</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Kapcsolat</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Üdvözöllek a portfólióm oldalon!</h1>
+            <p>Bemutatkozó szöveg itt.</p>
+        </div>
+    </header>
+
+    <!-- Fő tartalom -->
+    <main>
+        <!-- Projektek szekció -->
+        <section id="projects">
+            <h2>Projektek</h2>
+            <div class="project-gallery">
+                <!-- Projekt példák -->
+                <article class="project">
+                    <img src="project1.jpg" alt="Projekt 1">
+                    <h3>Projekt 1</h3>
+                    <p>Rövid leírás.</p>
+                </article>
+                <article class="project">
+                    <img src="project2.jpg" alt="Projekt 2">
+                    <h3>Projekt 2</h3>
+                    <p>Rövid leírás.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Blog szekció -->
+        <section id="blog">
+            <h2>Blog</h2>
+            <article class="blog-post">
+                <h3>Blog Bejegyzés 1</h3>
+                <p>Rövid bevezető szöveg.</p>
+                <a href="#">Tovább olvasom</a>
+            </article>
+        </section>
+
+        <!-- Kapcsolat szekció -->
+        <section id="contact">
+            <h2>Kapcsolat</h2>
+            <form id="contact-form">
+                <label for="name">Név:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Üzenet:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Küldés</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Lábléc -->
+    <footer>
+        <p>&copy; 2024 Minden jog fenntartva.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
