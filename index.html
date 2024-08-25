@@ -118,6 +118,33 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+
+    // Intersection Observer beállítása
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Töröljük az elem figyelését
+            }
+        });
+    }, observerOptions);
+
+    // Minden szekció hozzáadása a megfigyelőhöz
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -4,8 +4,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #1e1e1e; /* Sötét háttérszín az oldalhoz */
-    color: #e0e0e0; /* Világos szöveg szín */
+    background: linear-gradient(45deg, #1e3c72, #2a5298); /* Kékes-lilás színátmenet */
+    color: #e0e0e0;
+    animation: backgroundChange 15s ease infinite; /* Háttér animáció */
 }
 
 /* Header */
@@ -23,7 +24,7 @@ header {
 }
 
 header.scrolled {
-    background: rgba(0, 0, 0, 0.8); /* Sötétebb háttérszín görgetéskor */
+    background: rgba(25, 25, 112, 0.8); /* Sötét kék háttérszín görgetéskor */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Árnyék görgetéskor */
 }
 
@@ -40,97 +41,149 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #e0e0e0;
+    color: #b0c4de; /* Kékes szín */
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease; /* Zökkenőmentes színváltozás */
+    transition: color 0.3s ease, transform 0.3s ease; /* Zökkenőmentes szín- és transform animáció */
 }
 
 nav ul li a:hover {
-    color: #ff9800; /* Hover szín */
+    color: #add8e6; /* Világosabb kék hover szín */
+    transform: scale(1.1); /* Kis növekedés hover hatásra */
 }
 
 /* Hero szakasz */
 .hero {
     padding: 100px 20px 50px; /* Magasabb padding a fixált fejléc miatt */
-    background: #333; /* Sötét háttérszín */
+    background: rgba(0, 0, 0, 0); /* Átlátszó háttérszín */
     color: #fff;
     text-align: center;
     margin-bottom: 60px; /* Nagyobb távolság a következő szekciótól */
-    border-bottom: 1px solid #444; /* Határvonal az elválasztáshoz */
+    border-bottom: 1px solid rgba(138, 43, 226, 0.5); /* Átlátszó határvonal (kékes-lilás) */
 }
 
 /* Szekciók stílusozása */
+/* Szekció animációk */
 section {
     padding: 60px 20px;
     margin-bottom: 60px; /* Nagyobb távolság a következő szekciótól */
-    background: #2c2c2c; /* Sötét szürke háttérszín */
-    border: 1px solid #444; /* Sötétebb keret */
+    background: rgba(0, 0, 0, 0); /* Átlátszó háttérszín */
+    border: 1px solid rgba(138, 43, 226, 0.5); /* Átlátszó keret (kékes-lilás) */
     border-radius: 8px; /* Lekerekített sarkok */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Árnyék az elkülönítéshez */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0; /* Kezdetben láthatatlan */
+    transform: translateY(50px); /* Kezdeti pozíció */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Animáció */
 }
 
+/* Szekciók fokozatos megjelenése */
+section.visible {
+    opacity: 1; /* Látható állapot */
+    transform: translateY(0); /* Végeredmény pozíció */
+}
+
+section:hover {
+    transform: translateY(-10px); /* Kis emelkedés hover hatásra */
+}
+
+/* Szekció címek */
 section h2 {
     margin: 0;
     padding-bottom: 20px;
-    border-bottom: 2px solid #ff9800; /* Szekciók alatti szegély */
+    border-bottom: 2px solid rgba(138, 43, 226, 0.7); /* Átlátszó szegély (kékes-lilás) */
     font-size: 2em;
-    color: #ff9800; /* Szekciócím szín */
+    color: #add8e6; /* Világos kék szín */
+    animation: fadeIn 1s ease; /* Fading in animáció */
+}
+
+/* Projektek szekció */
+.project-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Növelt távolság a projektek között */
+}
+
+.project {
+    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
+    padding: 20px;
+    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
+}
+
+.project:hover {
+    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
+    transform: scale(1.05); /* Kis növekedés hover hatásra */
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Tapasztalatok szekció */
-#experience .experience-list {
+.experience-list {
     display: flex;
     flex-direction: column;
     gap: 20px; /* Növelt távolság a tapasztalatok között */
 }
 
 .experience {
-    background: #444;
+    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
     padding: 20px;
-    border: 1px solid #555;
+    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
     border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
+}
+
+.experience:hover {
+    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
+    transform: scale(1.05); /* Kis növekedés hover hatásra */
 }
 
 /* Eddigi munkáim szekció */
-#work .work-list {
+.work-list {
     display: flex;
     flex-direction: column;
     gap: 20px; /* Növelt távolság a munkák között */
 }
 
 .work-item {
-    background: #444;
+    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
     padding: 20px;
-    border: 1px solid #555;
+    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
     border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
+}
+
+.work-item:hover {
+    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
+    transform: scale(1.05); /* Kis növekedés hover hatásra */
 }
 
 /* Skillek szekció */
-#skills {
-    background: #333; /* Sötét háttérszín a skill szekcióhoz */
-    color: #fff;
-}
-
 .skills-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px; /* Növelt távolság az egyes skill elemek között */
+    flex-direction: column;
+    gap: 20px; /* Növelt távolság a skill elemek között */
 }
 
 .skill {
-    background: #444; /* Sötétebb háttér a skill elemekhez */
-    border: 1px solid #555; /* Sötétebb keret */
+    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
+    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
     border-radius: 8px;
     padding: 20px;
-    width: 120px;
+    width: 100%;
     text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease; /* Animáció a háttérszínre és a skálázásra */
+    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
 }
 
 .skill:hover {
-    background: #555; /* Kicsit világosabb háttér hover hatásra */
+    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
     transform: scale(1.05); /* Kis növekedés hover hatásra */
 }
 
@@ -145,32 +198,54 @@ section h2 {
 }
 
 /* Kapcsolat szekció */
-#contact .contact-info {
+.contact-info {
     font-size: 1.2em;
     line-height: 1.6;
     text-align: center;
 }
 
-.contact-info p {
-    margin: 10px 0;
-}
-
 /* Lábléc */
 footer {
-    background: #333;
+    background: rgba(0, 0, 0, 0); /* Átlátszó háttérszín */
     color: #e0e0e0;
     padding: 20px;
     text-align: center;
 }
 
+/* Social links */
 .social-links a {
-    color: #ff9800;
+    color: #add8e6; /* Világos kék szín */
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease; /* Zökkenőmentes szín- és transform animáció */
 }
 
 .social-links a:hover {
-    color: #e68900;
+    color: #87ceeb; /* Még világosabb kék hover szín */
+    transform: scale(1.1); /* Kis növekedés hover hatásra */
+}
+
+/* Animációk */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Háttér animáció */
+@keyframes backgroundChange {
+    0% {
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+    }
+    50% {
+        background: linear-gradient(45deg, #2a5298, #1e3c72);
+    }
+    100% {
+        background: linear-gradient(45deg, #1e3c72, #2a5298);
+    }
 }
