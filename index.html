@@ -21,6 +21,12 @@
         </nav>
     </header>
 
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+
     <!-- Fő tartalom -->
     <main>
         <!-- Hero szakasz -->
@@ -33,15 +39,15 @@
             <h2>Projektek</h2>
             <div class="project-gallery">
                 <article class="project">
-                    <img src="project1.jpg" alt="Projekt 1">
+                    <img src="project1.jpg" alt="Projekt 1" class="project-img">
                     <h3>Projekt 1</h3>
                     <p>Rövid leírás.</p>
                 </article>
-                <article class="project">
-                    <img src="project2.jpg" alt="Projekt 2">
+                <!-- <article class="project">
+                    <img src="project2.jpg" alt="Projekt 2" class="project-img">
                     <h3>Projekt 2</h3>
                     <p>Rövid leírás.</p>
-                </article>
+                </article> -->
             </div>
         </section>
 
@@ -112,37 +118,37 @@
     <!-- Lábléc -->
     <footer>
         <p>&copy; 2024 Minden jog fenntartva.</p>
-        <div class="social-links">
+        <!-- <div class="social-links">
             <a href="#">Facebook</a>
             <a href="#">Twitter</a>
-        </div>
+        </div> -->
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section');
 
-    // Intersection Observer beállítása
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
+            // Intersection Observer beállítása
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Töröljük az elem figyelését
-            }
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Töröljük az elem figyelését
+                    }
+                });
+            }, observerOptions);
+
+            // Minden szekció hozzáadása a megfigyelőhöz
+            sections.forEach(section => {
+                observer.observe(section);
+            });
         });
-    }, observerOptions);
-
-    // Minden szekció hozzáadása a megfigyelőhöz
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-});
     </script>
 
     <script src="script.js"></script>

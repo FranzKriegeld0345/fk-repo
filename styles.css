@@ -1,251 +1,250 @@
-/* Alapvető stílusok */
-body {
-    font-family: Arial, sans-serif;
+/* Reset és alap stílusok */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(45deg, #1e3c72, #2a5298); /* Kékes-lilás színátmenet */
-    color: #e0e0e0;
-    animation: backgroundChange 15s ease infinite; /* Háttér animáció */
-}
-
-/* Header */
-header {
-    position: fixed; /* Fixáljuk a fejlécet az oldal tetején */
+  }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    background-color: #171717; /* Sötét háttér szín */
+    color: #ffffff; /* Fehér szöveg szín */
+    line-height: 1.6;
+    font-family: sans-serif;
+    position: relative;
+  }
+  
+  /* Háttér animáció */
+  .lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 90vw;
+    z-index: -1; /* Háttér a tartalom mögött */
+  }
+  
+  .line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .line::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 7s infinite;
+  }
+  
+  .line:nth-child(1) {
+    margin-left: -25%;
+  }
+  
+  .line:nth-child(1)::after {
+    animation-delay: 2s;
+  }
+  
+  .line:nth-child(3) {
+    margin-left: 25%;
+  }
+  
+  .line:nth-child(3)::after {
+    animation-delay: 2.5s;
+  }
+  
+  @keyframes drop {
+    0% {
+      top: -50%;
+    }
+    100% {
+      top: 110%;
+    }
+  }
+  
+  /* Fejléc stílus */
+  header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0); /* Teljesen átlátszó háttér */
-    color: #e0e0e0;
-    padding: 15px 20px;
-    text-align: center;
-    z-index: 1000; /* Biztosítja, hogy a fejléc mindig a tartalom felett legyen */
-    transition: background 0.3s ease, box-shadow 0.3s ease; /* Zökkenőmentes háttérszín és árnyék változás */
-}
-
-header.scrolled {
-    background: rgba(25, 25, 112, 0.8); /* Sötét kék háttérszín görgetéskor */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Árnyék görgetéskor */
-}
-
-/* Navigációs menü */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #b0c4de; /* Kékes szín */
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Zökkenőmentes szín- és transform animáció */
-}
-
-nav ul li a:hover {
-    color: #add8e6; /* Világosabb kék hover szín */
-    transform: scale(1.1); /* Kis növekedés hover hatásra */
-}
-
-/* Hero szakasz */
-.hero {
-    padding: 100px 20px 50px; /* Magasabb padding a fixált fejléc miatt */
-    background: rgba(0, 0, 0, 0); /* Átlátszó háttérszín */
-    color: #fff;
-    text-align: center;
-    margin-bottom: 60px; /* Nagyobb távolság a következő szekciótól */
-    border-bottom: 1px solid rgba(138, 43, 226, 0.5); /* Átlátszó határvonal (kékes-lilás) */
-}
-
-/* Szekciók stílusozása */
-/* Szekció animációk */
-section {
-    padding: 60px 20px;
-    margin-bottom: 60px; /* Nagyobb távolság a következő szekciótól */
-    background: rgba(0, 0, 0, 0); /* Átlátszó háttérszín */
-    border: 1px solid rgba(138, 43, 226, 0.5); /* Átlátszó keret (kékes-lilás) */
-    border-radius: 8px; /* Lekerekített sarkok */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Árnyék az elkülönítéshez */
+    height: 60px; /* Igény szerint módosítható */
+    background: transparent; /* Átlátszó háttér */
     display: flex;
-    flex-direction: column;
     align-items: center;
-    opacity: 0; /* Kezdetben láthatatlan */
-    transform: translateY(50px); /* Kezdeti pozíció */
-    transition: opacity 0.6s ease, transform 0.6s ease; /* Animáció */
-}
-
-/* Szekciók fokozatos megjelenése */
-section.visible {
-    opacity: 1; /* Látható állapot */
-    transform: translateY(0); /* Végeredmény pozíció */
-}
-
-section:hover {
-    transform: translateY(-10px); /* Kis emelkedés hover hatásra */
-}
-
-/* Szekció címek */
-section h2 {
-    margin: 0;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgba(138, 43, 226, 0.7); /* Átlátszó szegély (kékes-lilás) */
-    font-size: 2em;
-    color: #add8e6; /* Világos kék szín */
-    animation: fadeIn 1s ease; /* Fading in animáció */
-}
-
-/* Projektek szekció */
-.project-gallery {
+    justify-content: center;
+    z-index: 10; /* Fejléc a háttér és tartalom felett */
+  }
+  
+  nav ul {
+    list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: 30px; /* Növelt távolság a projektek között */
-}
-
-.project {
-    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
-    padding: 20px;
-    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
-    border-radius: 8px;
-    text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
-}
-
-.project:hover {
-    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
-    transform: scale(1.05); /* Kis növekedés hover hatásra */
-}
-
-.project img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Tapasztalatok szekció */
-.experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Növelt távolság a tapasztalatok között */
-}
-
-.experience {
-    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
-    padding: 20px;
-    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
-}
-
-.experience:hover {
-    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
-    transform: scale(1.05); /* Kis növekedés hover hatásra */
-}
-
-/* Eddigi munkáim szekció */
-.work-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Növelt távolság a munkák között */
-}
-
-.work-item {
-    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
-    padding: 20px;
-    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
-}
-
-.work-item:hover {
-    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
-    transform: scale(1.05); /* Kis növekedés hover hatásra */
-}
-
-/* Skillek szekció */
-.skills-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Növelt távolság a skill elemek között */
-}
-
-.skill {
-    background: rgba(128, 0, 128, 0.8); /* Átlátszó háttér (lila) */
-    border: 1px solid rgba(138, 43, 226, 0.8); /* Átlátszó keret (kékes-lilás) */
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    transition: background 0.3s ease, transform 0.3s ease; /* Animációk */
-}
-
-.skill:hover {
-    background: rgba(148, 0, 211, 0.9); /* Kicsit sötétebb háttér hover hatásra */
-    transform: scale(1.05); /* Kis növekedés hover hatásra */
-}
-
-.skill img {
-    max-width: 100%;
-    height: auto;
-}
-
-.skill p {
-    margin: 10px 0 0;
-    font-weight: bold;
-}
-
-/* Kapcsolat szekció */
-.contact-info {
-    font-size: 1.2em;
-    line-height: 1.6;
-    text-align: center;
-}
-
-/* Lábléc */
-footer {
-    background: rgba(0, 0, 0, 0); /* Átlátszó háttérszín */
-    color: #e0e0e0;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Social links */
-.social-links a {
-    color: #add8e6; /* Világos kék szín */
+    gap: 20px;
+  }
+  
+  nav a {
+    color: #ffffff;
     text-decoration: none;
-    margin: 0 10px;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease; /* Zökkenőmentes szín- és transform animáció */
-}
-
-.social-links a:hover {
-    color: #87ceeb; /* Még világosabb kék hover szín */
-    transform: scale(1.1); /* Kis növekedés hover hatásra */
-}
-
-/* Animációk */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
-/* Háttér animáció */
-@keyframes backgroundChange {
-    0% {
-        background: linear-gradient(45deg, #1e3c72, #2a5298);
-    }
-    50% {
-        background: linear-gradient(45deg, #2a5298, #1e3c72);
-    }
-    100% {
-        background: linear-gradient(45deg, #1e3c72, #2a5298);
-    }
-}
+  }
+  
+  /* Fő tartalom */
+  main {
+    padding-top: 60px; /* Fejléc magassága */
+  }
+  
+  /* Hero szakasz */
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Teljes magasságú hero szakasz */
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  /* Projektek szekció */
+  #projects {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .project {
+    background: rgba(255, 255, 255, 0.1); /* Átlátszó háttér */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 200px; /* Responsiveness */
+  }
+  
+  .project-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Tapasztalatok és munkák szekciók */
+  #experience, #work {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .work-list, .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .work-item, .experience {
+    background: rgba(255, 255, 255, 0.1); /* Átlátszó háttér */
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px; /* Maximum szélesség */
+  }
+  
+  /* Skillek szekció */
+  #skills {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .skill {
+    background: rgba(255, 255, 255, 0.1); /* Átlátszó háttér */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 150px; /* Maximum szélesség */
+  }
+  
+  .skill img {
+    max-width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Kapcsolat szekció */
+  #contact {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .contact-info {
+    background: rgba(255, 255, 255, 0.1); /* Átlátszó háttér */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px; /* Maximum szélesség */
+  }
+  
+  /* Lábléc */
+  footer {
+    padding: 20px;
+    text-align: center;
+    background: transparent; /* Átlátszó háttér */
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Görgető sáv (scrollbar) */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  /* Láthatóság animáció */
+  section {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+  
+  section.visible {
+    opacity: 1;
+  }
+  
