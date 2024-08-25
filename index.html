@@ -13,23 +13,25 @@
             <ul>
                 <li><a href="#home">Kezdőlap</a></li>
                 <li><a href="#projects">Projektek</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#experience">Tapasztalatok</a></li>
+                <li><a href="#work">Eddigi Munkáim</a></li>
+                <li><a href="#skills">Skillek</a></li>
                 <li><a href="#contact">Kapcsolat</a></li>
             </ul>
         </nav>
-        <div class="hero">
-            <h1>Üdvözöllek a portfólióm oldalon!</h1>
-            <p>Bemutatkozó szöveg itt.</p>
-        </div>
     </header>
 
     <!-- Fő tartalom -->
     <main>
+        <!-- Hero szakasz -->
+        <section id="home" class="hero">
+            <h1>Üdvözöllek az oldalon!</h1>
+        </section>
+
         <!-- Projektek szekció -->
         <section id="projects">
             <h2>Projektek</h2>
             <div class="project-gallery">
-                <!-- Projekt példák -->
                 <article class="project">
                     <img src="project1.jpg" alt="Projekt 1">
                     <h3>Projekt 1</h3>
@@ -43,28 +45,67 @@
             </div>
         </section>
 
-        <!-- Blog szekció -->
-        <section id="blog">
-            <h2>Blog</h2>
-            <article class="blog-post">
-                <h3>Blog Bejegyzés 1</h3>
-                <p>Rövid bevezető szöveg.</p>
-                <a href="#">Tovább olvasom</a>
-            </article>
+        <!-- Tapasztalatok szekció -->
+        <section id="experience">
+            <h2>Tapasztalatok</h2>
+            <div class="experience-list">
+                <article class="experience">
+                    <h3>Munkahely 1</h3>
+                    <p>Leírás a munkahelyről és a feladatokról.</p>
+                </article>
+                <article class="experience">
+                    <h3>Munkahely 2</h3>
+                    <p>Leírás a munkahelyről és a feladatokról.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Eddigi munkáim szekció -->
+        <section id="work">
+            <h2>Eddigi Munkáim</h2>
+            <div class="work-list">
+                <article class="work-item">
+                    <h3>Munka 1</h3>
+                    <p>Leírás a munkáról, elért eredmények, stb.</p>
+                </article>
+                <article class="work-item">
+                    <h3>Munka 2</h3>
+                    <p>Leírás a munkáról, elért eredmények, stb.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skillek szekció -->
+        <section id="skills">
+            <h2>Skillek</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <img src="html-icon.png" alt="HTML">
+                    <p>HTML</p>
+                </div>
+                <div class="skill">
+                    <img src="css-icon.png" alt="CSS">
+                    <p>CSS</p>
+                </div>
+                <div class="skill">
+                    <img src="js-icon.png" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill">
+                    <img src="python-icon.png" alt="Python">
+                    <p>Python</p>
+                </div>
+                <!-- Add more skills as needed -->
+            </div>
         </section>
 
         <!-- Kapcsolat szekció -->
         <section id="contact">
             <h2>Kapcsolat</h2>
-            <form id="contact-form">
-                <label for="name">Név:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Üzenet:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Küldés</button>
-            </form>
+            <div class="contact-info">
+                <p><strong>Telefonszám:</strong> +36 30 123 4567</p>
+                <p><strong>Email:</strong> info@example.com</p>
+            </div>
         </section>
     </main>
 
