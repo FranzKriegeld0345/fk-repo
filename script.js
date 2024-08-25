@@ -1,4 +1,4 @@
-// Script.js
+// script.js
 
 document.addEventListener("DOMContentLoaded", function() {
     // Kapcsolattartási űrlap validációja
@@ -20,5 +20,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 behavior: "smooth"
             });
         });
+    });
+
+    // Fejléc háttérszín változtatása görgetéskor
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 });

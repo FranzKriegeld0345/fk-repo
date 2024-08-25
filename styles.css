@@ -7,15 +7,26 @@ body {
 }
 
 header {
-    background: #333;
+    position: fixed; /* Fixáljuk a fejlécet az oldal tetején */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fél átlátszó háttér */
     color: #fff;
-    padding: 20px;
+    padding: 10px 20px;
     text-align: center;
+    z-index: 1000; /* Biztosítja, hogy a fejléc mindig a tartalom felett legyen */
+    transition: background 0.3s ease; /* Zökkenőmentes háttérszín változás */
+}
+
+header.scrolled {
+    background: rgba(0, 0, 0, 0.8); /* Háttér szín amikor görgetünk */
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -26,10 +37,15 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
+/* Hero szakasz */
 .hero {
-    padding: 50px;
+    padding: 80px 20px 20px; /* Magasabb padding a fixált fejléc miatt */
+    background: #eee;
+    text-align: center;
+    position: relative;
 }
 
 .hero h1 {
@@ -80,4 +96,8 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
